@@ -1,0 +1,13 @@
+{
+"name": "por-marketplace",
+"owner": {
+"name": "Luis Novo"
+},
+"plugins": [
+{
+  "name": "por-dev",
+  "source": "./por-dev",
+  "description": "A development plugin for the Product on Rails methodology"
+}
+]
+}

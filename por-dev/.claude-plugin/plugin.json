@@ -1,0 +1,8 @@
+{
+    "name": "por-dev",
+    "description": "A development plugin for the Product on Rails methodology",
+    "version": "1.0.0",
+    "author": {
+        "name": "Luis Novo"
+    }
+}
