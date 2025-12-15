@@ -16,7 +16,7 @@ This plugin helps you build features methodically by enforcing a structured appr
 
 ```bash
 # Add the marketplace (if not already added)
-claude plugin marketplace add /path/to/por-marketplace
+claude plugin marketplace add https://github.com/lfnovo/por-marketplace
 
 # Install the plugin
 claude plugin install por-dev-plugin@por-marketplace
