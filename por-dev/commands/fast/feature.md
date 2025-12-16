@@ -75,7 +75,7 @@ Execute every command to validate the feature works correctly with zero regressi
 
 
 ## Clarification Needed
-<optionally list any questions and clarifications required to properly design the feature. A developer will answer them in time. If the user answers your clarification questions, you should update the documentation.>
+<optionally list any questions and clarifications required to properly design the feature. A developer will answer them in time. Also include your default decision (the one you'll follow if your questions are not answered). If the user answers your clarification questions, you should update the documentation.>
 
 ## Notes
 <optionally list any additional notes, future considerations, or context that are relevant to the feature that will be helpful to the developer>
