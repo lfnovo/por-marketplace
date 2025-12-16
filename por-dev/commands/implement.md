@@ -17,7 +17,7 @@ $ARGUMENTS
 
 In any mode (ff or phases), at the end of each phase:
 
-- Update the plan.md file, marking completed tasks as done `[X]`
+- Update the plan.md file (if there is one), marking completed tasks as done `[X]`
 - Add comments to the completed phase with a summary of what was accomplished, specially if you changed the plan for some reason.
 
 
