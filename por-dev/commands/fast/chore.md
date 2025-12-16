@@ -13,15 +13,6 @@ Create a new plan in specs/*.md to resolve the `Chore` using the exact specified
 - Respect requested files in the `Relevant Files` section.
 - Start your research by reading the `README.md` file.
 
-## Relevant Files
-
-Focus on the following files:
-- `README.md` - Contains the project overview and instructions.
-- `app/**` - Contains the codebase client/server.
-- `scripts/**` - Contains the scripts to start and stop the server + client.
-
-Ignore all other files in the codebase.
-
 ## Plan Format
 
 ```md
