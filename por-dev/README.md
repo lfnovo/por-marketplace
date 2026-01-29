@@ -180,6 +180,8 @@ Quick planning for smaller features.
 - Testing strategy
 - Acceptance criteria
 
+## Utility Commands
+
 ### `/all-tools`
 
 Lists all available Claude Code tools in the current session.
@@ -187,6 +189,25 @@ Lists all available Claude Code tools in the current session.
 ```bash
 /all-tools
 ```
+
+### `/generate-all-claude-mds`
+
+Generates CLAUDE.md documentation files throughout the codebase to help AI assistants understand the project structure.
+
+```bash
+/generate-all-claude-mds
+```
+
+**What it creates:**
+- Contextual maps for AI navigating the codebase
+- Integration guides showing how modules connect
+- Pattern documentation for consistent code generation
+- Gotcha lists preventing common AI mistakes
+
+**Hierarchy approach:**
+- Builds from deepest directories (leaves) up to root
+- Parent files reference children instead of duplicating content
+- Root serves as a navigation hub
 
 ## Workflow Decision Guide
 
@@ -198,6 +219,7 @@ Lists all available Claude Code tools in the current session.
 | New API endpoint | `/prime` → `/discover` → `/design` → `/plan` → `/implement` |
 | Complex feature | `/prime` → `/discover` → `/design` → `/plan` → `/implement` |
 | Refactoring | `/prime` → `/fast:chore` or complete workflow |
+| Document codebase for AI | `/generate-all-claude-mds` |
 
 ## Project Structure
 
