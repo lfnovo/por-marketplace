@@ -24,7 +24,7 @@ claude plugin install por-dev@por-marketplace
 
 ## Workflows
 
-The plugin provides two main workflows depending on task complexity:
+The plugin provides workflows for different task types and complexities:
 
 ### Fast Track (Quick Tasks)
 
@@ -61,6 +61,26 @@ For larger features requiring thorough analysis and architecture design.
 - `architecture.md` - Technical design and decisions
 - `contracts.md` - API/data contracts (if applicable)
 - `plan.md` - Step-by-step implementation tasks
+
+### Complexity Audit
+
+For auditing and simplifying existing codebases.
+
+```
+/prime → /simplify [scope]
+```
+
+| Command | Purpose |
+|---------|---------|
+| `/simplify` | Full project complexity audit |
+| `/simplify <path>` | Focused audit on a specific module or path |
+| `/simplify <previous-report>` | Re-audit comparing with a previous report |
+
+**Output:** Creates `specs/complexity-audit/audit.md` with:
+- Health score and executive summary
+- Categorized findings (abstractions, dependencies, structure, code, config, tests)
+- Prioritized simplification cards with before/after proposals
+- Actionable plan sorted by impact and effort
 
 ## Command Reference
 
@@ -138,6 +158,24 @@ Executes the implementation plan.
 1. Reads and executes the plan step-by-step
 2. Updates `plan.md` marking completed tasks
 3. Reports summary and `git diff --stat` when done
+
+### `/simplify [scope]`
+
+Performs a complete complexity audit of the codebase and generates a prioritized simplification plan.
+
+```bash
+/simplify                    # Full project audit
+/simplify src/auth           # Focused audit on auth module
+/simplify specs/complexity-audit/audit.md  # Re-audit (compare with previous)
+```
+
+**What it does:**
+1. Loads existing `CLAUDE.md` files for context (or maps the system from scratch)
+2. Maps project identity, directory structure, dependencies, and critical flows
+3. Scans for unnecessary complexity across 6 categories: premature abstractions, structural over-engineering, dependency bloat, code complexity, configuration complexity, and test complexity
+4. Classifies findings by severity and effort, then prioritizes them
+5. Generates detailed simplification cards with before/after proposals
+6. Produces a full audit report at `specs/complexity-audit/audit.md`
 
 ### `/fast:bug <description>`
 
@@ -219,6 +257,8 @@ Generates CLAUDE.md documentation files throughout the codebase to help AI assis
 | New API endpoint | `/prime` → `/discover` → `/design` → `/plan` → `/implement` |
 | Complex feature | `/prime` → `/discover` → `/design` → `/plan` → `/implement` |
 | Refactoring | `/prime` → `/fast:chore` or complete workflow |
+| Reduce complexity | `/prime` → `/simplify` |
+| Audit a specific module | `/prime` → `/simplify src/module` |
 | Document codebase for AI | `/generate-all-claude-mds` |
 
 ## Project Structure
@@ -230,11 +270,13 @@ your-project/
 ├── specs/
 │   ├── fix-login-bug.md           # Fast track plans
 │   ├── upgrade-deps.md
-│   └── user-authentication/       # Complete workflow
-│       ├── spec.md
-│       ├── architecture.md
-│       ├── contracts.md
-│       └── plan.md
+│   ├── user-authentication/       # Complete workflow
+│   │   ├── spec.md
+│   │   ├── architecture.md
+│   │   ├── contracts.md
+│   │   └── plan.md
+│   └── complexity-audit/          # Simplify audit
+│       └── audit.md
 └── ...
 ```
 
